@@ -6,14 +6,21 @@ import { readmeTemplate } from "../templates/readme.template";
 import { requirementsTemplate } from "../templates/requirements.template";
 import { gitignoreTemplate } from "../templates/gitignore.template";
 import { gitkeepTemplate } from "../templates/gitkeep.template";
+import { vscodeSettingsTemplate } from "../templates/vscodeSettings.template";
 
 export class GenerateCommand {
   public static load(program: CommanderStatic) {
     program
       .command("generate [folder]")
       .alias("g")
+      .option("-e, --virtualenv", "Create virtual environment")
+      .option(
+        "-c, --vscode",
+        "Add path to virtual environment for vscode and coderunner"
+      )
       .description("Sets up a new python project.")
       .action(async (folder: string = ".", command: Command) => {
+        // generate folder structure and files
         [folder, `${folder}/output`, `${folder}/resources`].map(dir =>
           GenerateAction.generateDirectory(dir)
         );
@@ -27,6 +34,15 @@ export class GenerateCommand {
         ].map(item => GenerateAction.generateFile(item.path, item.content));
 
         console.log(chalk.green(`Successfully generated your python project!`));
+
+        // process the optionals
+        if (command.virtualenv) {
+          if (command.vscode) {
+            GenerateAction.generateVscodeSettings(folder);
+          }
+
+          GenerateAction.generateVenv(folder);
+        }
       });
   }
 }
