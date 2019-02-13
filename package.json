@@ -1,0 +1,34 @@
+{
+  "name": "newpy",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"**/*.ts\"",
+    "start": "node index.js"
+  },
+  "bin": {
+    "newpy": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinDrost/newpy.git"
+  },
+  "author": "Martin Drost",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartinDrost/newpy/issues"
+  },
+  "homepage": "https://github.com/MartinDrost/newpy#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "node": "^11.9.0"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/commander": "^2.12.2",
+    "@types/node": "^10.12.21"
+  }
+}
