@@ -37,7 +37,7 @@ export class GenerateAction {
     GenerateAction.generateDirectory(`${folder}/.vscode`);
     GenerateAction.generateFile(
       `${folder}/.vscode/settings.json`,
-      vscodeSettingsTemplate
+      vscodeSettingsTemplate()
     );
   }
 }

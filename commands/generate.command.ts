@@ -11,15 +11,18 @@ import { vscodeSettingsTemplate } from "../templates/vscodeSettings.template";
 export class GenerateCommand {
   public static load(program: CommanderStatic) {
     program
-      .command("generate [folder]")
-      .alias("g")
+      .usage("[folder]")
       .option("-e, --virtualenv", "Create virtual environment")
       .option(
         "-c, --vscode",
         "Add path to virtual environment for vscode and coderunner"
       )
       .description("Sets up a new python project.")
-      .action(async (folder: string = ".", command: Command) => {
+      .action(async (folder: string, command: Command) => {
+        if (folder.toString() === "[object Object]") {
+          return;
+        }
+
         // generate folder structure and files
         [folder, `${folder}/output`, `${folder}/resources`].map(dir =>
           GenerateAction.generateDirectory(dir)

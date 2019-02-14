@@ -4,5 +4,4 @@ export const gitignoreTemplate = `\
 venv
 output/**
 !.gitkeep
-
 `;

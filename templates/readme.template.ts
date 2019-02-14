@@ -28,5 +28,4 @@ Running this command allows you to run python from the virtual environment conte
 \`\`\`
 ./{envName}/Scripts/activate.bat
 \`\`\`
-
 `;
