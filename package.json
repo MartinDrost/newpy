@@ -1,6 +1,6 @@
 {
   "name": "newpy",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -30,5 +30,11 @@
     "@types/chalk": "^2.2.0",
     "@types/commander": "^2.12.2",
     "@types/node": "^10.12.21"
-  }
+  },
+  "keywords": [
+    "python",
+    "boilerplate",
+    "cli",
+    "virtualenv"
+  ]
 }

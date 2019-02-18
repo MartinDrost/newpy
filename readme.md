@@ -7,7 +7,7 @@ The newpy package allows you to generate a boilerplate for your Python project. 
 
 ## Usage
 
-The following command creates a project folder in the current directory called "my-project", generates the virtual environment and configures the virtualenv usage in Visual Studio Code.
+The following command creates a project folder called "my-project" in the current directory, generates the virtual environment and configures the virtualenv usage in Visual Studio Code.
 
 ```sh
 > newpy my-project --virtualenv --vscode
