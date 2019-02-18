@@ -24,11 +24,15 @@ export class GenerateCommand {
         }
 
         // generate folder structure and files
-        [folder, `${folder}/output`, `${folder}/resources`].map(dir =>
-          GenerateAction.generateDirectory(dir)
-        );
         [
-          { path: `${folder}/main.py`, content: mainTemplate },
+          folder,
+          `${folder}/src`,
+          `${folder}/output`,
+          `${folder}/resources`
+        ].map(dir => GenerateAction.generateDirectory(dir));
+
+        [
+          { path: `${folder}/src/main.py`, content: mainTemplate },
           { path: `${folder}/readme.md`, content: readmeTemplate },
           { path: `${folder}/requirements.txt`, content: requirementsTemplate },
           { path: `${folder}/.gitignore`, content: gitignoreTemplate },
